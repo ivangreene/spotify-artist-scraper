@@ -63,7 +63,10 @@ def get_artists_for_query(query):
 
 
 def get_artists_page(query, offset):
-    result = sp.search(q=query, type='artist', limit=MAX_PAGE_LIMIT, offset=offset)
+    # Adding the year range seems to eliminate a lot of duplicates for certain
+    # queries, allowing us to move across shorter queries more quickly.
+    # TODO: Determine the significance of artists which do not fall within this year:1900-2050 filter
+    result = sp.search(q=query + ' year:1900-2050', type='artist', limit=MAX_PAGE_LIMIT, offset=offset)
     return result['artists']['total'], result['artists']['items']
 
 
