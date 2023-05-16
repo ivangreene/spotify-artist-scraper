@@ -73,7 +73,7 @@ name.
 * The configured maximum query length limits the depth,
 so we may miss artists who do not appear for highly
 populated shorter queries.
-  * This may be overcome by adding a year range to the query,
+  * This may be overcome by iterating over smaller year ranges,
   returning only artists who have a release within that year
   range, and allowing iteration over the results with shorter
   queries
@@ -81,5 +81,6 @@ populated shorter queries.
 ### Improvements
 * Use a proper CSV writer, like Pandas, and write directly
 to a file.
-* Add the year range mentioned above, to allow using
-smaller query strings and iterating over decades
+* Use smaller year ranges mentioned above, to allow using
+smaller query strings and iterating over decades, for
+example
