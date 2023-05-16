@@ -21,12 +21,13 @@ def eprint(*args, **kwargs):
 
 
 def main():
+    print(",".join(["id", "name", "genres", "popularity"]))
     traverse_from_seed()
 
 
 def print_artists(artists):
     for artist in artists:
-        print("{0},{1},{2},{3}".format(artist['id'], artist['name'], ";".join(artist['genres']), artist['popularity']))
+        print(",".join([artist['id'], artist['name'], ";".join(artist['genres']), str(artist['popularity'])]))
 
 
 def traverse_from_seed(seed=''):
